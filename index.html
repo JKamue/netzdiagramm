@@ -1,0 +1,86 @@
+<html>
+	<head>
+		<title>Netzdiagramm</title>
+		<script>
+		
+			//Scores
+			var score = [4,5,7,10,8];
+			
+			//Abstand von oben
+			var sizex = 300;
+			//Abstand von Links
+			var sizey = 300;
+			
+			//Radius des n-Ecks
+			var radius = 300;
+			//Anzahl der Ecken
+			var corners = 5; 
+			
+			function degrees_to_radians(degrees)
+			{
+			  return degrees * (Math.PI/180);
+			}
+			
+			function draw(){
+				
+				var degrees = 360/corners;
+				
+				var xcoord = [];
+				var ycoord = [];
+				
+				for (i = 0; i < corners; i++) {
+					var	a = i+1;
+					var x = Math.round(radius*Math.cos(degrees_to_radians(a*degrees))+1*(sizex));
+					var y = Math.round(radius*Math.sin(degrees_to_radians(a*degrees))+1*(sizey));
+					xcoord.push(x);
+					ycoord.push(y);
+				}
+				
+				var canvas = document.getElementById("myCanvas");
+				var ctx = canvas.getContext("2d");
+				ctx.fillStyle = "white";
+				ctx.fillRect(0, 0, canvas.width, canvas.height);
+				
+				for (i = 0; i < corners; i++) {
+					ctx.beginPath();
+					ctx.moveTo(sizex,sizey);
+					ctx.lineTo(xcoord[i],ycoord[i]);
+					if(i == corners-1){
+						ctx.lineTo(xcoord[0],ycoord[0]);
+					}else{
+						ctx.lineTo(xcoord[1*(i)+1],ycoord[1*(i)+1]);
+					}
+					ctx.stroke();
+				}
+				
+				var scorex = [];
+				var scorey = [];
+				for (i = 0; i < corners; i++) {
+					var	a = i+1;
+					var size = radius/(10/score[i]);
+					var x = Math.round(size*Math.cos(degrees_to_radians(a*degrees))+1*(sizex));
+					var y = Math.round(size*Math.sin(degrees_to_radians(a*degrees))+1*(sizey));
+					scorex.push(x);
+					scorey.push(y);
+				}	
+
+				for (i = 0; i < corners; i++) {
+					ctx.beginPath();
+					ctx.strokeStyle = '#ff0000';
+					ctx.moveTo(scorex[i],scorey[i]);
+					if(i == corners-1){
+						ctx.lineTo(scorex[0],scorey[0]);
+					}else{
+						ctx.lineTo(scorex[1*(i)+1],scorey[1*(i)+1]);
+					}
+					ctx.stroke();
+				}
+				
+			}
+		</script>
+	</head>
+	
+	<body onload="draw();">
+		<canvas style='background:white;' id="myCanvas" height="600px" width="600px"></canvas>
+	</body>
+</html>
