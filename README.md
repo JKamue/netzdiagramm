@@ -7,7 +7,8 @@ ALs Input gibt man...
 	...den Radius des n-Ecks
 		
 Changelog
-	*v.2
-		  *Die Anzahl der Ecken wird nun automatisch an die Anzahl an gegebenen Datenpunkten angepasst
-		  *Man Kann nun eine Skala ein und ausschalten
-		  *Man Kann nun eine Beschriftung ein und ausschalten
+
+v.2
+  - Die Anzahl der Ecken wird nun automatisch an die Anzahl an gegebenen Datenpunkten angepasst
+  - Man Kann nun eine Skala ein und ausschalten
+  - Man Kann nun eine Beschriftung ein und ausschalten
