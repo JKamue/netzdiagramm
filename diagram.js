@@ -6,6 +6,7 @@
 				xcoord.length
 				for (i = 0; i < xcoord.length; i++) {
 					ctx.beginPath();
+					ctx.strokeStyle = 'black'; 	
 					ctx.lineWidth=line;
 					ctx.moveTo(sizex,sizey);
 					ctx.lineTo(xcoord[i],ycoord[i]);
@@ -78,19 +79,19 @@
 					}else{
 						ctx.lineTo(scorex[1*(i)+1],scorey[1*(i)+1]);
 					}
+					ctx.closePath();
 					ctx.stroke();
 				}
 				
 				if(activate_text == true){
 					ctx.font = font_size + "px Arial";
-					ctx.strokeStyle = 'black';
 					for (i = 0; i < corners; i++) {
 						var	a = i+1;
 						var size = radius/(10/11);
 						var x = Math.round(size*Math.cos(degrees_to_radians(a*degrees))+1*(sizex))-1*(font_size/3);
 						var y = Math.round(size*Math.sin(degrees_to_radians(a*degrees))+1*(sizey))+1*(font_size/2);
 						ctx.fillText(a,x,y);
-					}	
+					}
 				}
 				
 			}

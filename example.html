@@ -1,0 +1,70 @@
+<html>
+	<head>
+		<title>Netzdiagramm</title>
+		<script src="diagram.js"></script>
+		<script>
+		//Settings
+			//Scores
+			var score = [4,5,7,6,8];
+			
+			//Abstand von oben
+			var sizex = 300;
+			//Abstand von Links
+			var sizey = 300;
+			
+			//Radius des n-Ecks
+			var radius = 200;
+			//Anzahl der Ecken
+			var corners = score.length; 
+			
+			//Skala true/false
+			var activate_skala = true;
+			
+			//Beschriftung
+			var activate_text = true;
+			var font_size = 30;
+			console.log(score);
+			function refresh(){
+				sizex = document.getElementById("sizex").value;
+				sizey = document.getElementById("sizey").value;
+				radius = document.getElementById("radius").value;
+				
+				score = document.getElementById("data").value.split(";");
+				console.log(score);
+				corners = score.length;
+				
+				activate_skala = document.getElementById("skala").checked;
+				activate_text = document.getElementById("text").checked;
+				draw();
+			
+			
+			
+			}
+			
+		</script>
+	</head>
+	
+	<body onload="draw();">
+		<table>
+			<tr>
+				<td width="50%">
+					<center>
+						Abstand X: <input onchange="refresh()" type="number" min="1" value="300" id="sizex"/><br>
+						Abstand Y: <input onchange="refresh()" type="number" min="1" value="300" id="sizey"/><br><br>
+						
+						Radius des n-Ecks: <input onchange="refresh()" type="number" value="200" min="1" id="radius"/><br><br>
+						
+						Beispieldatenpunkte (durch <b>;</b> trennen):<br>
+						<input onchange="refresh()" type="text" id="data" value="4;5;7;6;8"/><br><br>
+						
+						Skala ein/aus: <input onchange="refresh()" type="checkbox" id="skala" checked/><br>
+						Beschriftung ein/aus: <input onchange="refresh()" type="checkbox" id="text" checked/><br>
+					</center>
+				</td>
+				<td width="50%">
+					<canvas style='background:white;' id="myCanvas" height="600px" width="600px"></canvas>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
