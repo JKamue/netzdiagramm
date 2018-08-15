@@ -1,9 +1,9 @@
 # Netzdiagramm
 Dieses Script erstellt ein Netzdiagramm mit beliebig Größe und n-Ecken in einem canvas
 
-Als Input gibt man...
-	...ein Array mit der jeweiligen Punktzahl zwischen 0 (nichts) und 10 (maximale Punktzahl)
-	...den X und Y abstand vom Canvas
+Als Input gibt man...<br />
+	...ein Array mit der jeweiligen Punktzahl zwischen 0 (nichts) und 10 (maximale Punktzahl)<br />
+	...den X und Y abstand vom Canvas<br />
 	...den Radius des n-Ecks
 
 Ein Beispiel findet man unter example.html oder unter https://jkamue.de/stuff/diagram/index.html
